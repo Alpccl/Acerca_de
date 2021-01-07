@@ -1,64 +1,65 @@
 package com.example.acerca_de;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.core.app.BundleCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link MessageFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.example.acerca_de.databinding.FragmentMessageBinding;
+
+
 public class MessageFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private FragmentMessageBinding  mBinding;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+
+
+
 
     public MessageFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment MessageFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static MessageFragment newInstance(String param1, String param2) {
-        MessageFragment fragment = new MessageFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+
         }
-    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_message, container, false);
+        mBinding=FragmentMessageBinding.inflate(inflater, ViewGroup container, Bundle savedInstanceState )
+        return mBinding.getRoot();
+    }
+
+    private
+
+
+
+    private void SendMessage(String message){
+        String[] Emails = {"aledleonv@gmail.com", "support@mail.com"}
+        Intent mintent = new Intent(Intent.ACTION_SENDTO);
+
+        mintent.setData(Uri.parse("mailto;"));
+        mintent.putExtra(Intent.EXTRA_EMAIL, Emails );
+        mintent.putExtra(Intent.EXTRA_SUBJECT,"Contacto Acercade_APP");
+        mintent.putExtra(Intent.EXTRA_TEXT, message);
+        if (mintent.resolveActivity(getActivity().getPackageManager()) !=null){
+            startActivity(mintent);
+        }else{
+            Toast.makeText(getContext(), "Porfavor Instale una App de Correo para contactar",
+                    Toast.LENGTH_SHORT).show();
+        }
     }
 }

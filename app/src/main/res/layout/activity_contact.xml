@@ -6,4 +6,36 @@
     android:layout_height="match_parent"
     tools:context=".ContactActivity">
 
+    <ImageButton
+        android:id="@+id/IBFacebook"
+        android:layout_width="143dp"
+        android:layout_height="137dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_facebook" />
+
+    <ImageButton
+        android:id="@+id/IBInkeding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toEndOf="@+id/IBFacebook"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_linkedin__1_" />
+
+    <fragment
+        android:id="@+id/fragment"
+        android:name="com.example.acerca_de.MessageFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="172dp"
+        android:layout_marginEnd="168dp"
+        android:layout_marginBottom="255dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IBInkeding" />
 </androidx.constraintlayout.widget.ConstraintLayout>
