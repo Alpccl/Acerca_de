@@ -20,35 +20,53 @@ public class MessageFragment extends Fragment {
     private FragmentMessageBinding  mBinding;
 
 
-
-
-
     public MessageFragment() {
         // Required empty public constructor
     }
-
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        }
 
+        }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mBinding=FragmentMessageBinding.inflate(inflater, ViewGroup container, Bundle savedInstanceState )
+        mBinding=FragmentMessageBinding.inflate(inflater, container, false);
         return mBinding.getRoot();
+
+        mBinding.BtnContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+                    public void onClick(View v) {
+                        mBinding.BtnContact.setVisibility(View.GONE);
+                        mBinding.MsgHolder.setVisibility(View.VISIBLE);
+                        mBinding.BtnSend.setVisibility(View.VISIBLE);
+
+                    }
+                });
+
+        mBinding.BtnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mBinding.EdtxMsg.getText().toString().length() != 0) {
+                    String message = mBinding.EdtxMsg.getText().toString();
+                    SendMessage(message);
+                } else {
+                    Toast.makeText(getContext(), "Porfavor Ingrese un Mensaje",
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
     }
 
-    private
+
 
 
 
     private void SendMessage(String message){
-        String[] Emails = {"aledleonv@gmail.com", "support@mail.com"}
+        String[] Emails = {"aledleonv@gmail.com", "support@mail.com"};
         Intent mintent = new Intent(Intent.ACTION_SENDTO);
 
         mintent.setData(Uri.parse("mailto;"));
@@ -62,4 +80,4 @@ public class MessageFragment extends Fragment {
                     Toast.LENGTH_SHORT).show();
         }
     }
-}
+

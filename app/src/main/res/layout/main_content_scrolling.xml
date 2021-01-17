@@ -18,6 +18,56 @@
 
 
 
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="?android:dividerHorizontal"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:showDividers="middle|end"
+        android:stretchColumns="1"
+        android:id="@+id/tableLayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Años de experiencia"
+            tools:layout_conversion_absoluteHeight="0dp"
+            tools:layout_conversion_absoluteWidth="0dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp" />
+            <TextView
+                style="@style/CustomTable.Header"
+                android:text="0,1 "
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_editor_absoluteY="0dp"
+                tools:layout_editor_absoluteX="0dp"
+                android:layout_height="wrap_content"
+                tools:layout_conversion_absoluteWidth="0dp"
+                android:layout_width="wrap_content" />
+
+
+            <TextView
+                style="@style/CustomTable.row"
+                android:text="Nivel de Motivación"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_editor_absoluteY="0dp"
+                tools:layout_editor_absoluteX="0dp"
+                android:layout_height="wrap_content"
+                tools:layout_conversion_absoluteWidth="0dp"
+                android:layout_width="wrap_content" />
+            <TextView
+                style="@style/CustomTable.row"
+                android:text=" Extremadamente alta"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_editor_absoluteY="0dp"
+                tools:layout_editor_absoluteX="0dp"
+                android:layout_height="wrap_content"
+                tools:layout_conversion_absoluteWidth="0dp"
+                android:layout_width="wrap_content" />
+
+    </TableLayout>
 
 
 </androidx.core.widget.NestedScrollView>
